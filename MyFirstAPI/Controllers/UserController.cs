@@ -9,11 +9,12 @@ namespace MyFirstAPI.Controllers
     {
         //Primeiro endpoint
         [HttpGet]
+        [ProducesResponseType(typeof(Response), StatusCodes.Status200OK)]
         public IActionResult GetResult()
         {
             var response = new Response
             {
-                Age = 22,
+                Age = 21,
                 Name = "João Moraes"
             };
             return Ok(response);
