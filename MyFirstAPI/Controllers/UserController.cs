@@ -14,7 +14,7 @@ namespace MyFirstAPI.Controllers
         //Query Param
         [HttpGet]
         //Path Param
-        //[Route("{Id}/person/{nickname}")]
+        [Route("{Id}")]
         [ProducesResponseType(typeof(User), StatusCodes.Status200OK)]
         public IActionResult GetByID([FromQuery] int Id, [FromQuery] string? nickname)
         {
@@ -54,5 +54,25 @@ namespace MyFirstAPI.Controllers
         {
             return NoContent();
         }
+
+        [HttpGet("all")]
+        [ProducesResponseType(typeof(List<User>),StatusCodes.Status200OK)]
+        public IActionResult GetAll() {
+            var response = new List<User>()
+            {
+                new User {Id = 1, Age = 7, Name = "João"},
+                new User {Id = 2, Age = 8, Name = "Joãozinho"},
+            };
+
+            return Ok(response); 
+        }
+        
+        [HttpPut("update-password")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public IActionResult ChangePassword([FromBody] RequestChangeUserPasswordJson request)
+        {
+            return Ok();
+        }
+        
     }
 }
