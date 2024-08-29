@@ -38,5 +38,21 @@ namespace MyFirstAPI.Controllers
             };
             return Created(string.Empty, response);
         }
+
+        [HttpPut]
+        //[Route("{id}")]
+        //[FromRoute] int id "Se fizer sentido atualizar o perfil de outro usuário se não o logado"
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public IActionResult Update([FromBody] RequestUpdateUserProfileJson request)
+        {
+            return NoContent();
+        }
+
+        [HttpDelete]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public IActionResult Delete()
+        {
+            return NoContent();
+        }
     }
 }
