@@ -6,9 +6,7 @@ using MyFirstAPI.Communication.Responses;
 
 namespace MyFirstAPI.Controllers
 {
-    [Route("api/user")]
-    [ApiController]
-    public class UserController : ControllerBase
+    public class UserController : MyFirstAPIBaseController
     {
         //Primeiro endpoint
         //Query Param
